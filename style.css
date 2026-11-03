@@ -1,0 +1,55 @@
+:root{--bg:#070b1a;--panel:#0d1330;--line:#1a2250;--text:#e8ecff;--dim:#8590c0;--blue:#2f7bff;--purple:#8b4dff;--grad:linear-gradient(135deg,var(--blue),var(--purple));--r:18px}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--text);font:15px/1.45 "Sora","Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.hidden{display:none!important}
+.grad{background:var(--grad)}
+/* auth */
+#auth{min-height:100%;display:grid;place-items:center;padding:20px}
+.card{width:min(400px,100%);background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:28px;display:grid;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:22px;letter-spacing:.02em}
+.logo img{width:40px;height:40px}
+input,textarea{width:100%;background:#0a0f26;border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.btn{background:var(--grad);border-radius:14px;padding:12px;font-weight:600}
+.link{color:var(--dim);font-size:13px;text-align:center}
+.err{color:#ff7a90;font-size:13px;min-height:1em}
+/* app */
+#app{height:100%;display:grid;grid-template-columns:340px 1fr}
+aside{border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0;background:var(--panel)}
+.top{display:flex;align-items:center;gap:10px;padding:14px}
+.top .me{flex:1;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.top button{color:var(--dim);font-size:13px}
+.search{padding:0 14px 10px}
+#results,#chatlist{overflow:auto;flex:1}
+.row{display:flex;gap:12px;align-items:center;padding:12px 14px;width:100%;text-align:left}
+.row:hover,.row.on{background:#121a42}
+.av{flex:none;width:44px;height:44px;border-radius:50%;background:var(--grad);display:grid;place-items:center;font-weight:700;position:relative}
+.av.online::after{content:"";position:absolute;right:0;bottom:0;width:12px;height:12px;border-radius:50%;background:#3ddc97;border:2px solid var(--panel)}
+.meta{flex:1;min-width:0}.meta b{display:block}
+.meta small{color:var(--dim);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.badge{background:var(--blue);border-radius:99px;min-width:22px;padding:1px 7px;font-size:12px;text-align:center}
+.empty{color:var(--dim);text-align:center;padding:40px 20px}
+main{display:flex;flex-direction:column;min-height:0;min-width:0}
+.head{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.head .back{display:none;font-size:22px}
+#msgs{flex:1;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:6px}
+.msg{max-width:min(75%,520px);padding:9px 14px;border-radius:var(--r);background:#141c4a;align-self:flex-start;word-wrap:break-word;white-space:pre-wrap}
+.msg.mine{align-self:flex-end;background:var(--grad);border-bottom-right-radius:6px}
+.msg:not(.mine){border-bottom-left-radius:6px}
+.msg time{display:block;font-size:11px;opacity:.65;margin-top:2px}
+.msg .del{font-size:11px;opacity:.6;margin-left:8px}
+.compose{display:flex;gap:10px;padding:12px 16px;border-top:1px solid var(--line)}
+.compose textarea{resize:none;max-height:120px;height:44px}
+.compose .btn{padding:0 20px}
+.placeholder{margin:auto;color:var(--dim);text-align:center}
+@media(max-width:760px){
+  #app{grid-template-columns:1fr}
+  #app.chat aside{display:none}
+  #app:not(.chat) main{display:none}
+  .head .back{display:block}
+  .msg{max-width:85%}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}

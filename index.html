@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Phantom Link</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg">
+<meta name="theme-color" content="#070b1a">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section id="auth">
+  <div class="card">
+    <div class="logo"><img src="icons/icon.svg" alt="">Phantom Link</div>
+    <input id="a-name" placeholder="Full name" class="reg hidden" autocomplete="name">
+    <input id="a-user" placeholder="Username (a–z, 0–9, _)" class="reg hidden" autocapitalize="none">
+    <input id="a-email" type="email" placeholder="Email" autocomplete="email">
+    <input id="a-pass" type="password" placeholder="Password (8+ characters)" autocomplete="current-password">
+    <div class="err" id="a-err" role="alert"></div>
+    <button class="btn" id="a-go">Log in</button>
+    <button class="link" id="a-toggle">New here? Create an account</button>
+    <button class="link" id="a-reset">Forgot password?</button>
+  </div>
+</section>
+
+<div id="app" class="hidden">
+  <aside>
+    <div class="top">
+      <div class="av" id="me-av"></div>
+      <div class="me" id="me-name"></div>
+      <button id="verify" class="hidden">Verify email</button>
+      <button id="logout">Log out</button>
+    </div>
+    <div class="search"><input id="q" placeholder="Find people by username or name"></div>
+    <div id="results" class="hidden"></div>
+    <div id="chatlist"></div>
+  </aside>
+  <main>
+    <div class="placeholder" id="none">Search for a username to start a conversation.</div>
+    <div id="chat" class="hidden" style="display:flex;flex-direction:column;min-height:0;flex:1">
+      <div class="head"><button class="back" id="back" aria-label="Back">‹</button><div class="av" id="c-av"></div><div class="meta"><b id="c-name"></b><small id="c-status"></small></div></div>
+      <div id="msgs"></div>
+      <div class="compose"><textarea id="txt" rows="1" placeholder="Write a message"></textarea><button class="btn" id="send">Send</button></div>
+    </div>
+  </main>
+</div>
+<script type="module" src="app.js"></script>
+<script>if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("service-worker.js"))</script>
+</body>
+</html>
