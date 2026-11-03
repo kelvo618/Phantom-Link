@@ -1,19 +1,21 @@
-// Paste your Firebase web app config here (Firebase console → Project settings → Your apps → Web).
-// This config is public by design; security comes from firestore.rules.
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { initializeFirestore, persistentLocalCache } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyAvuP7zQJZEQgvBhBELCf9wbnA-kvhqo54",
+  authDomain: "phantom-link-b316c.firebaseapp.com",
+  projectId: "phantom-link-b316c",
+  storageBucket: "phantom-link-b316c.firebasestorage.app",
+  messagingSenderId: "231578498847",
+  appId: "1:231578498847:web:c523a0256ec3051ea6222a",
+  measurementId: "G-MNKZ46B7YP"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-// Offline cache helps with unstable connections; Firestore reconnects automatically.
-export const db = initializeFirestore(app, { localCache: persistentLocalCache() });
+const analytics = getAnalytics(app);
